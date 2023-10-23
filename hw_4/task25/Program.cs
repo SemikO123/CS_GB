@@ -11,8 +11,8 @@ int Input(string message)
 
 long Pow(int num1, int num2)
 {
-  long res = num1;
-  for (int i = 1; i < num2; i++)
+  long res = 1;
+  for (int i = 0; i < num2; i++)
   {
     res *= num1;
   }
