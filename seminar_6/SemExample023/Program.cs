@@ -64,7 +64,7 @@ int GetInd(int[,] arr, int num)
 {
   for (int i = 0; i < arr.GetLength(0); i++)
   {
-    if (num == arr[i,0]) return i;
+    if (num == arr[i, 0]) return i;
   }
   return -1;
 }
@@ -81,7 +81,7 @@ int[,] GetDictionary(int[,] matrix)
     }
   }
 
-  int[,] dict = new int[count,2];
+  int[,] dict = new int[count, 2];
   for (int i = 0; i < count; i++)
   {
     dict[i, 0] = uniq[i];
@@ -89,7 +89,7 @@ int[,] GetDictionary(int[,] matrix)
 
   foreach (int el in matrix)
   {
-    dict[GetInd(dict, el),1]++;
+    dict[GetInd(dict, el), 1]++;
   }
 
   return dict;
@@ -99,14 +99,14 @@ void BubbleSort(int[] arr)
 {
   for (int i = 0; i < arr.Length; i++)
   {
-    for (int j = 0; j < arr.Length-1; j++)
+    for (int j = 0; j < arr.Length - 1 - i; j++)
     {
-      if (arr[j] > arr[j+1])
+      if (arr[j] > arr[j + 1])
       {
         // swap
         int tmp = arr[j];
-        arr[j] = arr[j+1];
-        arr[j+1] = tmp;
+        arr[j] = arr[j + 1];
+        arr[j + 1] = tmp;
       }
     }
   }
@@ -118,7 +118,8 @@ int CountUniq(int[] arr)
   int lastUniq = arr[0];
   foreach (int el in arr)
   {
-    if (el != lastUniq){
+    if (el != lastUniq)
+    {
       lastUniq = el;
       count++;
     }
@@ -133,32 +134,30 @@ int[,] GetDictionary2(int[,] matrix)
   {
     for (int j = 0; j < matrix.GetLength(1); j++)
     {
-      arr[i * matrix.GetLength(1) + j] = matrix[i,j];
+      arr[i * matrix.GetLength(1) + j] = matrix[i, j];
     }
   }
 
   BubbleSort(arr);
   int uniqCount = CountUniq(arr);
 
-  int[,] dict = new int [uniqCount,2];
-  dict[0,0] = arr[0];
+  int[,] dict = new int[uniqCount, 2];
+  dict[0, 0] = arr[0];
   int current = 0;
   // int curentElem = arr[0];
   foreach (int el in arr)
   {
-    if (el == dict[current,0])
+    if (el == dict[current, 0])
     {
-      dict[current,1]++;
+      dict[current, 1]++;
     }
     else
     {
       current++;
-      dict[current,0] = el;
-      dict[current,1]++;
+      dict[current, 0] = el;
+      dict[current, 1]++;
     }
   }
-
-
   return dict;
 }
 
@@ -167,7 +166,7 @@ void PrintDictionary(int[,] dict)
   // 6 встречается 2 раза
   for (int i = 0; i < dict.GetLength(0); i++)
   {
-    System.Console.WriteLine($"{dict[i,0]} встречается {dict[i,1]} раз");
+    System.Console.WriteLine($"{dict[i, 0]} встречается {dict[i, 1]} раз");
   }
 }
 
