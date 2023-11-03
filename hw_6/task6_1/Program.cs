@@ -46,6 +46,7 @@ void PrintMatrix(char[,] matrix)
   }
 }
 
+//тестовый массив
 char[,] matrix1 = new char[,]
 {
   {'Э','Т','о','Д','л','и',},

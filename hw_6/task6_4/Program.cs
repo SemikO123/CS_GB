@@ -23,11 +23,12 @@ string Reverse(string str)
 
 string ReverseOrderedString(string str)
 {
-  string res = string.Empty;
-  string currentWord = string.Empty;
-  for (int i = str.Length - 1; i >= 0; i--)
+  string res = string.Empty; // Итоговая строка
+  string currentWord = string.Empty; // Текущее слово
+  // Идем по массиву с конца в начало, назодим слова до пробела после чего разворачиваем их и плюсуем к итоговой строке.
+  for (int i = str.Length - 1; i >= 0; i--) 
   {
-    if (str[i] != ' ') currentWord += str[i];
+    if (str[i] != ' ') currentWord += str[i]; 
     else
     {
       res += Reverse(currentWord) + ' ';
