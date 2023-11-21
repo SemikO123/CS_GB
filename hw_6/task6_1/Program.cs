@@ -10,14 +10,14 @@ int Input(string message)
 //метод генерирующий матрицу заполненную рандомными ASCII символами в диапазоне кодов от a до b
 char[,] Getmatrix(int len1, int len2, int a, int b)
 {
-  char[,] matrix = new char[len1,len2];
+  char[,] matrix = new char[len1, len2];
   b++; // Генерировать будем до b включительно
   Random rand = new Random();
   for (int i = 0; i < len1; i++)
   {
     for (int j = 0; j < len2; j++)
     {
-      matrix[i,j] = (char)rand.Next(a, b);
+      matrix[i, j] = (char)rand.Next(a, b);
     }
   }
   return matrix;
@@ -58,7 +58,8 @@ System.Console.WriteLine($"Итоговая строка: \"{ConcatMatrix(matrix
 int m = Input("Введите кол-во строк: "),
     n = Input("Введите кол-во стобцов: ");
 
-char[,] matrix2 = Getmatrix(m,n,32,255);
+char[,] matrix2 = Getmatrix(m, n, 32, 255);
+
 
 PrintMatrix(matrix2);
 System.Console.WriteLine($"Итоговая строка: \"{ConcatMatrix(matrix2)}\"  ");
